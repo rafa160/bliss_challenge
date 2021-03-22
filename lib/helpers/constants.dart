@@ -6,6 +6,7 @@ const textGreenAccent = Colors.greenAccent;
 const textBlack = Color(0xFF000000);
 const amber = Colors.amberAccent;
 const yellow = Colors.yellowAccent;
+const redAccent = Colors.redAccent;
 const grey = Colors.grey;
 
 const appTitle = TextStyle(
