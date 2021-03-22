@@ -8,6 +8,7 @@ import 'package:bliss_challenge/components/main_card.dart';
 import 'package:bliss_challenge/components/random_card.dart';
 import 'package:bliss_challenge/helpers/strings.dart';
 import 'package:bliss_challenge/screens/emojis_screen.dart';
+import 'package:bliss_challenge/screens/random_emoji_screen.dart';
 import 'package:bliss_challenge/screens/user_details_screen.dart';
 import 'package:bliss_challenge/screens/user_repository_screen.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
@@ -151,7 +152,15 @@ class _MainScreenState extends State<MainScreen> {
                   ],
                 ),
                 GestureDetector(
-                    onTap: () async {},
+                    onTap: () async {
+                      var result = await emojiBloc.getRandomEmoji();
+
+                      if (result == null) return;
+
+                      await Get.to(RandomEmojiScreen(
+                        model: result,
+                      ));
+                    },
 
                     child: RandomCard(
                         Strings.RANDOM_EMOJI_TITLE, FontAwesomeIcons.random, Colors.amberAccent)),
