@@ -1,4 +1,5 @@
 import 'file:///home/rafa160/Downloads/bliss_challenge/lib/helpers/constants.dart';
+import 'package:bliss_challenge/blocs/favorite_bloc.dart';
 import 'package:bliss_challenge/blocs/user_bloc.dart';
 import 'package:bliss_challenge/components/buttons/cutsom_back_button.dart';
 import 'package:bliss_challenge/components/circular_progress_indicator.dart';
@@ -19,7 +20,7 @@ class UserDetailsScreen extends StatefulWidget {
 
 class _UserDetailsScreenState extends State<UserDetailsScreen> {
   var userBloc = BlocProvider.getBloc<UserBloc>();
-
+  var favBloc = BlocProvider.getBloc<FavoriteBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       color: textWhite,
                       child: UserProfileCard(
                         onTap: () {
-
+                          favBloc.toggleAsFavoriteAvatar(snapshot.data);
                         },
                         user: snapshot.data,
                       ));
