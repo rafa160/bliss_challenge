@@ -1,17 +1,19 @@
+import 'package:bliss_challenge/blocs/user_bloc.dart';
+import 'package:bliss_challenge/screens/splash_screen.dart';
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bliss Challenge',
+  runApp(BlocProvider(
+    blocs: [
+      Bloc((i) => UserBloc()),
+    ],
+    child: GetMaterialApp(
+      title: "Bliss Challenge",
       debugShowCheckedModeBanner: false,
-      home: Container(),
-    );
-  }
+      home: SplashScreen(),
+    ),
+  ));
 }
