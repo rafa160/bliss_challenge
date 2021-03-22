@@ -7,6 +7,7 @@ import 'package:bliss_challenge/components/buttons/custom_buttom.dart';
 import 'package:bliss_challenge/components/main_card.dart';
 import 'package:bliss_challenge/components/random_card.dart';
 import 'package:bliss_challenge/helpers/strings.dart';
+import 'package:bliss_challenge/screens/user_details_screen.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -84,12 +85,15 @@ class _MainScreenState extends State<MainScreen> {
                   child: Row(
                     children: [
                       CustomButton(
-                        onPressed: () async {},
+                        onPressed: () async {
+
+                        },
                         text: Strings.HINT_USER_NAME_BUTTON,
                       ),
                       Spacer(),
                       CustomButton(
                         onPressed: () async {
+
                         },
                         text: Strings.SEARCH_USER_REPOSITORIES,
                       ),
