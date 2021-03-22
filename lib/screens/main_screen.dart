@@ -8,6 +8,7 @@ import 'package:bliss_challenge/components/main_card.dart';
 import 'package:bliss_challenge/components/random_card.dart';
 import 'package:bliss_challenge/helpers/strings.dart';
 import 'package:bliss_challenge/screens/user_details_screen.dart';
+import 'package:bliss_challenge/screens/user_repository_screen.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -86,14 +87,33 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       CustomButton(
                         onPressed: () async {
+                          FocusScope.of(context).requestFocus(new FocusNode());
+                          if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
 
+                            var nameSelected =
+                            _formKey.currentState.value['name'];
+
+                            Get.to(() => UserDetailsScreen(user: nameSelected));
+                          }
+                          _controller.clear();
                         },
                         text: Strings.HINT_USER_NAME_BUTTON,
                       ),
                       Spacer(),
                       CustomButton(
                         onPressed: () async {
+                          FocusScope.of(context).requestFocus(new FocusNode());
+                          if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
 
+                            var result = await repositoryBloc.getRepositories();
+
+                            if (result == null) return;
+
+                            await Get.to(UserRepositoryScreen(repository: result));
+                          }
+                          _controller.clear();
                         },
                         text: Strings.SEARCH_USER_REPOSITORIES,
                       ),
