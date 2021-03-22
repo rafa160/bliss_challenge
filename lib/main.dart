@@ -1,4 +1,5 @@
 import 'package:bliss_challenge/blocs/emoji_bloc.dart';
+import 'package:bliss_challenge/blocs/favorite_bloc.dart';
 import 'package:bliss_challenge/blocs/repository_bloc.dart';
 import 'package:bliss_challenge/blocs/user_bloc.dart';
 import 'package:bliss_challenge/screens/splash_screen.dart';
@@ -13,7 +14,7 @@ void main() {
       Bloc((i) => UserBloc()),
       Bloc((i) => EmojiBloc()),
       Bloc((i) => RepositoryBloc()),
-
+      Bloc((i) => FavoriteBloc()),
     ],
     child: GetMaterialApp(
       title: "Bliss Challenge",
