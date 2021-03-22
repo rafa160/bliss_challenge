@@ -1,4 +1,6 @@
 
+import 'favorite_emoji_screen.dart';
+import 'favotire_avatars_screen.dart';
 import 'file:///home/rafa160/Downloads/bliss_challenge/lib/helpers/constants.dart';
 import 'package:bliss_challenge/blocs/emoji_bloc.dart';
 import 'package:bliss_challenge/blocs/repository_bloc.dart';
@@ -170,13 +172,13 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     GestureDetector(
                         onTap: () async {
-
+                          Get.to(FavoritesEmojiScreen());
                         },
                         child: MainCard(
                             Strings.HINT_FAV_EMOJIS, FontAwesomeIcons.heart, Colors.deepOrangeAccent)),
                     GestureDetector(
                         onTap: () async {
-
+                          Get.to(FavoritesAvatarScreen());
                         },
                         child: MainCard(
                             Strings.HINT_FAV_AVATARS, FontAwesomeIcons.icons, Colors.indigoAccent)),
