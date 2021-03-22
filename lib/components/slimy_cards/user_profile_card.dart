@@ -1,8 +1,8 @@
-import 'package:bliss_test_app/components/cached_image.dart';
-import 'package:bliss_test_app/components/slimy_cards/slimy_card.dart';
+import 'package:bliss_challenge/components/cached_image.dart';
+import 'package:bliss_challenge/components/slimy_cards/slimy_card.dart';
+import 'package:bliss_challenge/helpers/strings.dart';
+import 'package:bliss_challenge/models/user_model.dart';
 import 'file:///home/rafa160/Downloads/bliss_challenge/lib/helpers/constants.dart';
-import 'package:bliss_test_app/helpers/strings.dart';
-import 'package:bliss_test_app/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
