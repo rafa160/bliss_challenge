@@ -7,6 +7,7 @@ import 'package:bliss_challenge/components/buttons/custom_buttom.dart';
 import 'package:bliss_challenge/components/main_card.dart';
 import 'package:bliss_challenge/components/random_card.dart';
 import 'package:bliss_challenge/helpers/strings.dart';
+import 'package:bliss_challenge/screens/emojis_screen.dart';
 import 'package:bliss_challenge/screens/user_details_screen.dart';
 import 'package:bliss_challenge/screens/user_repository_screen.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
@@ -107,11 +108,14 @@ class _MainScreenState extends State<MainScreen> {
                           if (_formKey.currentState.validate()) {
                             _formKey.currentState.save();
 
-                            var result = await repositoryBloc.getRepositories();
+                            var nameSelected = _formKey.currentState.value['name'];
+                            var result = await repositoryBloc.getRepositories(name: nameSelected);
 
                             if (result == null) return;
 
-                            await Get.to(UserRepositoryScreen(repository: result));
+                            Get.to(UserRepositoryScreen(
+                              repository: result,
+                            ));
                           }
                           _controller.clear();
                         },
@@ -129,12 +133,18 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     GestureDetector(
                       onTap: () async {
+                        var result = await repositoryBloc.getRepositories();
+
+                        if (result == null) return;
+
+                        await Get.to(UserRepositoryScreen(repository: result));
                       },
                       child: MainCard(Strings.HINT_SEARCH_GOOGLE_REPOS, FontAwesomeIcons.google,
                           Colors.red),
                     ),
                     GestureDetector(
                         onTap: () async {
+                          await Get.to(EmojisScreen());
                         },
                         child: MainCard(
                             Strings.HINT_SEARCH_EMOJI, FontAwesomeIcons.icons, Colors.greenAccent))
