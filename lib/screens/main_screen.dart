@@ -116,7 +116,7 @@ class _MainScreenState extends State<MainScreen> {
 
                             if (result == null) return;
 
-                            Get.to(UserRepositoryScreen(
+                            Get.to(() => UserRepositoryScreen(
                               repository: result,
                             ));
                           }
@@ -140,14 +140,14 @@ class _MainScreenState extends State<MainScreen> {
 
                         if (result == null) return;
 
-                        await Get.to(UserRepositoryScreen(repository: result));
+                        await Get.to(() => UserRepositoryScreen(repository: result));
                       },
                       child: MainCard(Strings.HINT_SEARCH_GOOGLE_REPOS, FontAwesomeIcons.google,
                           Colors.red),
                     ),
                     GestureDetector(
                         onTap: () async {
-                          await Get.to(EmojisScreen());
+                          await Get.to(() => EmojisScreen());
                         },
                         child: MainCard(
                             Strings.HINT_SEARCH_EMOJI, FontAwesomeIcons.icons, Colors.greenAccent))
@@ -159,7 +159,7 @@ class _MainScreenState extends State<MainScreen> {
 
                       if (result == null) return;
 
-                      await Get.to(RandomEmojiScreen(
+                      await Get.to(() => RandomEmojiScreen(
                         model: result,
                       ));
                     },
@@ -172,13 +172,13 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     GestureDetector(
                         onTap: () async {
-                          Get.to(FavoritesEmojiScreen());
+                          Get.to(() => FavoritesEmojiScreen());
                         },
                         child: MainCard(
                             Strings.HINT_FAV_EMOJIS, FontAwesomeIcons.heart, Colors.deepOrangeAccent)),
                     GestureDetector(
                         onTap: () async {
-                          Get.to(FavoritesAvatarScreen());
+                          Get.to(() => FavoritesAvatarScreen());
                         },
                         child: MainCard(
                             Strings.HINT_FAV_AVATARS, FontAwesomeIcons.icons, Colors.indigoAccent)),

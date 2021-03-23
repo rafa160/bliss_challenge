@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 8)).then((_) {
-      Get.offAll(MainScreen());
+    Future.delayed(Duration(seconds: 5)).then((_) {
+      Get.offAll(() => MainScreen());
     });
   }
 }
